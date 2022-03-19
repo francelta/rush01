@@ -6,7 +6,7 @@
 /*   By: frcarras <frcarras@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 14:24:59 by alflopez          #+#    #+#             */
-/*   Updated: 2022/03/19 19:31:02 by frcarras         ###   ########.fr       */
+/*   Updated: 2022/03/19 20:38:21 by frcarras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,18 @@ void	print_top(int x)
 	{
 		ft_putchar('/');
 		while (x-- >= 2)
+		{
 			ft_putchar('*');
-		if (x == 0)
-			ft_putchar('\\');
-		ft_putchar('\n');
+		}
 	}
+	if (x == 0)
+	{
+		ft_putchar('\\');
+	}
+	ft_putchar('\n');
 }
 
-void	print_vertical(int x, int y)
+void	print_down_left(int x, int y)
 {
 	int	i;
 
@@ -41,9 +45,15 @@ void	print_vertical(int x, int y)
 			ft_putchar('\n');
 		}
 	}
-	else
+}
+
+void	print_down_right(int x, int y)
+{
+	int	i;
+
+	if (x > 1)
 	{
-		while (y-- > 1)
+		while (y-- > 2)
 		{
 			ft_putchar('*');
 			i = 2;
@@ -59,14 +69,18 @@ void	print_vertical(int x, int y)
 
 void	print_base(int x)
 {
-	ft_putchar('\\');
-	while (x-- >= 2)
+	if (x-- >= 2)
 	{
-		ft_putchar('*');
-	}
-	if (x == 1)
-	{
-		ft_putchar('/');
+		ft_putchar('\\');
+		while (x-- >= 2)
+		{
+			ft_putchar('*');
+			if (x == 1)
+			{
+				ft_putchar('/');
+				ft_putchar('\n');
+			}
+		}
 	}
 }
 
@@ -75,16 +89,26 @@ void	rush00(int x, int y)
 	if (x == 1)
 	{
 		ft_putchar('/');
+		if (y == 1)
+		{
+			ft_putchar('\n');
+		}
 		if (y > 1)
 		{
-			print_vertical(x, y);
+			print_down_left(x, y);
+			print_down_right(x, y);
 			ft_putchar('\\');
+			ft_putchar('\n');
 		}
 	}
 	if (x >= 2)
 	{
 		print_top(x);
-		print_vertical(x, y);
-		print_base(x);
+		print_down_left(x, y);
+		print_down_right(x, y);
+		if (y >= 2)
+		{
+			print_base(x);
+		}
 	}
 }
