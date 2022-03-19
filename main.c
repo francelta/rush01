@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fruiz-ca <fruiz-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alflopez <alflopez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 07:01:41 by fruiz-ca          #+#    #+#             */
-/*   Updated: 2022/03/19 12:45:01 by fruiz-ca         ###   ########.fr       */
+/*   Updated: 2022/03/19 15:55:37 by alflopez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "rush00.c"
 
 void rush00(int x,int y);
 
 int	main(void)
 {
-	rush00(5, 5);
+	rush00(1, 5);
 	return (0);
 }
